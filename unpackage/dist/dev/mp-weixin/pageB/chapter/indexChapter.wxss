@@ -1,0 +1,25 @@
+
+.cover-class.data-v-1c4aba27 {
+	/* height: 750rpx; */
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-top: 0rpx;
+}
+.title-class.data-v-1c4aba27 {
+	margin-bottom: 20rpx;
+}
+.content-blurb.data-v-1c4aba27 {
+	margin-top: 50rpx;
+}
+.select-chapter-botton.data-v-1c4aba27 {
+	padding: 0 50rpx 0 50rpx;
+	width: 300rpx;
+}
+.Chapter-class-box.data-v-1c4aba27 {
+	padding: 0 50rpx;
+	margin-top: 100rpx;
+}
+

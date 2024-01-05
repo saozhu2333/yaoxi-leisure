@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "耀西",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "wnavbar": "/components/backNavbar/index"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "耀西",
+  "usingComponents": {
+    "nx-search": "/components/nx-search/nx-search"
+  }
+}

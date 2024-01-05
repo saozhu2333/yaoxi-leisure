@@ -1,0 +1,1 @@
+<view class="data-v-525f9464"><mescroll-uni vue-id="0cd90dbc-1" down="{{downOption}}" up="{{upOption}}" auto="false" data-event-opts="{{[['^down',[['downCallback']]]]}}" bind:down="__e" class="data-v-525f9464" bind:__l="__l" vue-slots="{{['default']}}"><slot></slot></mescroll-uni></view>

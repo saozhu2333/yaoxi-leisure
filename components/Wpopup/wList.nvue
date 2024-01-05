@@ -1,0 +1,86 @@
+<template>
+	<div>
+		<scroll-view  scroll-y="true" class="list-box" >
+		<div v-for="(item, index) in data.val" :key="index" @click="selectClickChapter(item)">
+			<div class="item-list">{{ item.title }}</div>
+		</div>
+		</scroll-view>
+		<!-- <list :scrollable="true" fixFreezing="true" class="list-box" @scroll="huadong">
+			<cell v-for="(item, index) in data.val" :key="item.title" @click="selectClickChapter(item)" >
+		
+				<div class="item-list">{{ item.title }}</div>
+			</cell>
+		
+		</list> -->
+	</div>
+		
+
+</template>
+
+<script>
+	export default {
+		name: 'wList',
+		props: ['type', 'data', 'id', 'name'],
+		// #ifdef MP-WEIXIN
+		inject:['wxid'],
+
+		// #endif
+		data() {
+			return {
+				show: false,
+				list: {}
+			}
+		},
+		methods: {
+			huadong(val){},
+			selectClickChapter(val) {
+				console.log(val);
+				let url
+				// #ifdef MP-WEIXIN
+				if (this.type == 'video') {
+					url = `/pageB/VideoContent/content?chapterPath=${val.chapterPath}&title=${this.name}`
+				}
+				if (this.type == 'book') {
+					url =
+						`/pageB/BookContent/content?chapterId=${val.chapterId}&title=${val.title}&id=${this.wxid.fictionId}`
+				}
+				if (this.type == 'comic') {
+					url =
+						`/pageB/comicContent/content?chapterId=${val.chapterId}&title=${val.title}&id=${this.wxid.cartoonId}`
+				}
+				// #endif
+				
+				// #ifndef MP-WEIXIN
+				if (this.type == 'video') {
+					url = `/pageB/VideoContent/content?chapterPath=${val.chapterPath}&title=${this.name}`
+				}
+				if (this.type == 'book') {
+					url =
+						`/pageB/BookContent/content?chapterId=${val.chapterId}&title=${val.title}&id=${this.id.fictionId}`
+				}
+				if (this.type == 'comic') {
+					url =
+						`/pageB/comicContent/content?chapterId=${val.chapterId}&title=${val.title}&id=${this.id.cartoonId}`
+				}
+				// #endif
+				uni.navigateTo({
+					url: url,
+				});
+				this.$emit('popupClose')
+			}
+		}
+	}
+</script>
+
+<style scoped>
+	.item-list {
+		width: 100%;
+		height: 40px;
+		justify-content: center;
+		align-items: center;
+	}
+	.list-box{
+		width: 100%;
+		height: 500px;
+	}
+</style>

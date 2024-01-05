@@ -1,0 +1,1 @@
+<view class="wbar-class data-v-0d6abc6b"><u-navbar vue-id="19fde2d1-1" height="80rpx" title="{{title}}" fixed="{{false}}" placeholder="{{true}}" bgColor="#FFFFFF" data-event-opts="{{[['^leftClick',[['leftClick']]]]}}" bind:leftClick="__e" class="data-v-0d6abc6b" bind:__l="__l"></u-navbar></view>

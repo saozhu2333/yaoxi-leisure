@@ -1,0 +1,10 @@
+(global["webpackJsonp"]=global["webpackJsonp"]||[]).push([["components/Wpopup/wList"],{"168a":function(t,n,e){},3327:function(t,n,e){"use strict";var c=e("168a"),o=e.n(c);o.a},"3b4d":function(t,n,e){"use strict";e.r(n);var c=e("b492"),o=e("8b09");for(var a in o)["default"].indexOf(a)<0&&function(t){e.d(n,t,(function(){return o[t]}))}(a);e("3327");var i=e("f0c5"),u=Object(i["a"])(o["default"],c["b"],c["c"],!1,null,"ea8ffaa8",null,!1,c["a"],void 0);n["default"]=u.exports},"68eb":function(t,n,e){"use strict";(function(t){Object.defineProperty(n,"__esModule",{value:!0}),n.default=void 0;var e={name:"wList",props:["type","data","id","name"],inject:["wxid"],data:function(){return{show:!1,list:{}}},methods:{huadong:function(t){},selectClickChapter:function(n){var e;console.log(n),"video"==this.type&&(e="/pageB/VideoContent/content?chapterPath=".concat(n.chapterPath,"&title=").concat(this.name)),"book"==this.type&&(e="/pageB/BookContent/content?chapterId=".concat(n.chapterId,"&title=").concat(n.title,"&id=").concat(this.wxid.fictionId)),"comic"==this.type&&(e="/pageB/comicContent/content?chapterId=".concat(n.chapterId,"&title=").concat(n.title,"&id=").concat(this.wxid.cartoonId)),t.navigateTo({url:e}),this.$emit("popupClose")}}};n.default=e}).call(this,e("543d")["default"])},"8b09":function(t,n,e){"use strict";e.r(n);var c=e("68eb"),o=e.n(c);for(var a in c)["default"].indexOf(a)<0&&function(t){e.d(n,t,(function(){return c[t]}))}(a);n["default"]=o.a},b492:function(t,n,e){"use strict";e.d(n,"b",(function(){return c})),e.d(n,"c",(function(){return o})),e.d(n,"a",(function(){}));var c=function(){var t=this.$createElement;this._self._c},o=[]}}]);
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+    'components/Wpopup/wList-create-component',
+    {
+        'components/Wpopup/wList-create-component':(function(module, exports, __webpack_require__){
+            __webpack_require__('543d')['createComponent'](__webpack_require__("3b4d"))
+        })
+    },
+    [['components/Wpopup/wList-create-component']]
+]);

@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "耀西",
+  "usingComponents": {
+    "down-scroll": "/components/downScroll/downScroll",
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "uni-search-bar": "/components/uni-search-bar/uni-search-bar",
+    "u-grid": "/uni_modules/uview-ui/components/u-grid/u-grid",
+    "u-grid-item": "/uni_modules/uview-ui/components/u-grid-item/u-grid-item",
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-loading-icon": "/uni_modules/uview-ui/components/u-loading-icon/u-loading-icon",
+    "home-item": "/components/homeItemTabs/homeItemTabs"
+  }
+}

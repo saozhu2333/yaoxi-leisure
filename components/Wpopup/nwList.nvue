@@ -1,0 +1,48 @@
+<template>
+	<div>
+		
+	</div>
+</template>
+
+<script>
+	export default {
+		name:'nwlist',
+		props: ['type', 'data', 'id', 'name'],
+		data() {
+			return {
+				show: false,
+				list: {}
+			};
+		},
+		components:{
+			nWlist,
+		},
+		onLoad(option) {},
+		methods: {
+		selectClickChapter(val) {
+			let url
+			if (this.type == 'video') {
+				url = `/pageB/VideoContent/content?chapterPath=${val.chapterPath}&title=${this.name}`
+			}
+			if (this.type == 'book') {
+				url =
+					`/pageB/BookContent/content?chapterId=${val.chapterId}&title=${val.title}&id=${this.id.fictionId}`
+			}
+			if (this.type == 'comic') {
+				url =
+					`/pageB/comicContent/content?chapterId=${val.chapterId}&title=${val.title}&id=${this.id.cartoonId}`
+			}
+			uni.navigateTo({
+				url: url,
+			});
+		},
+		},
+		mounted() {
+		
+		}
+	}
+</script>
+
+<style>
+
+</style>

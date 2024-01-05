@@ -1,0 +1,28 @@
+
+.collapse-box.data-v-1e08320c {
+	width: 400rpx;
+	height: 100%;
+	overflow: auto;
+	/* padding-bottom: 100rpx; */
+}
+.scroll_view_style.data-v-1e08320c {
+	height: 100%;
+}
+.popup-bottom-null.data-v-1e08320c {
+	display: block;
+	width: 100%;
+	height: 200rpx;
+}
+.collapse-title.data-v-1e08320c {
+	padding: 20rpx 10rpx 20rpx 10rpx;
+}
+.collapse-title ._h3.data-v-1e08320c {
+	text-align: center;
+}
+.collapse-item-class.data-v-1e08320c{
+	height: 800px;
+}
+.data-v-1e08320c .u-popup__content {
+	height: 100%;
+}
+

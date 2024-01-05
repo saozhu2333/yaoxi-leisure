@@ -1,0 +1,111 @@
+{
+    "name" : "耀西",
+    "appid" : "__UNI__8AE940F",
+    "description" : "",
+    "versionName" : "1.0.0",
+    "versionCode" : "100",
+    "transformPx" : false,
+    "compatConfig" : {
+        "MODE" : 2
+    },
+    "app-plus" : {
+        "usingComponents" : true,
+        "compilerVersion" : 3,
+        "modules" : {
+            "VideoPlayer" : {}
+        },
+        "distribute" : {
+            "android" : {
+                "permissions" : [
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+                    "<uses-feature android:name=\"android.hardware.camera\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+                ],
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a" ]
+            },
+            "ios" : {
+                "dSYMs" : false
+            },
+            "sdkConfigs" : {
+                "ad" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "unpackage/res/icons/72x72.png",
+                    "xhdpi" : "unpackage/res/icons/96x96.png",
+                    "xxhdpi" : "unpackage/res/icons/144x144.png",
+                    "xxxhdpi" : "unpackage/res/icons/192x192.png"
+                },
+                "ios" : {
+                    "appstore" : "unpackage/res/icons/1024x1024.png",
+                    "ipad" : {
+                        "app" : "unpackage/res/icons/76x76.png",
+                        "app@2x" : "unpackage/res/icons/152x152.png",
+                        "notification" : "unpackage/res/icons/20x20.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "proapp@2x" : "unpackage/res/icons/167x167.png",
+                        "settings" : "unpackage/res/icons/29x29.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "spotlight" : "unpackage/res/icons/40x40.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png"
+                    },
+                    "iphone" : {
+                        "app@2x" : "unpackage/res/icons/120x120.png",
+                        "app@3x" : "unpackage/res/icons/180x180.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "notification@3x" : "unpackage/res/icons/60x60.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "settings@3x" : "unpackage/res/icons/87x87.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png",
+                        "spotlight@3x" : "unpackage/res/icons/120x120.png"
+                    }
+                }
+            }
+        },
+        "nvueCompiler" : "weex"
+    },
+    "quickapp" : {},
+    "mp-weixin" : {
+        "appid" : "wx126c286fdd7bd3eb",
+        "setting" : {
+            "urlCheck" : true
+        },
+        "usingComponents" : true
+    },
+    // "h5":{
+    // 	"devServer": {
+    // 				"port": 8088,//端口号，这个自己随便配置，防止开发多个项目是端口号冲突，跟跨域配置没关系
+    // 				"disableHostCheck": true,//禁用 Host 检查
+    // 				// 能成功跨域的前提是:本地跑项目的端口需要与后台接口允许跨域的端口一致
+    // 				"proxy": {
+    // 					"/api": {
+    // 						"target": "https://api.pingcc.cn/",//请求目标路径
+    // 						"changeOrigin": true,//当为true时，代理服务器向后端发送请求时端口号会与后端端口号一致，vue里面默认为true，react默认为false，如果为false，向后端发送请求时后端显示的端口号就还是本地的端口号，如果后端没有做出限制还是能请求
+    // 						"secure": false,
+    // 						"ws": false,//用于支持websocket,默认为true
+    // 						// "pathRewrite": {//重写本地发起的路径
+    // 						// 	"^/api/sys": "/api"//正则表达式，将/api/sys变成/api，如果接口接口地址有api这个路径就变成api,如果没有就把他变成空字符串
+    // 						// }
+    // 					}
+    // 				}
+    // 			}
+    // },
+    "vueVersion" : "2",
+    "locale" : "zh-Hans",
+    "h5" : {
+        "title" : "耀西",
+        "template" : "template.html"
+    }
+}

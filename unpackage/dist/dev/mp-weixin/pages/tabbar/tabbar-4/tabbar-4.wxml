@@ -1,0 +1,1 @@
+<view><view style="margin:20rpx 20rpx;"><nx-search vue-id="10bee80f-1" selectList="{{selectList}}" button="inside" value="{{keyword}}" data-event-opts="{{[['^search',[['doSearch']]],['^confirm',[['doSearc']]],['^input',[['__set_model',['','keyword','$event',[]]]]]]}}" bind:search="__e" bind:confirm="__e" bind:input="__e" bind:__l="__l"></nx-search></view></view>

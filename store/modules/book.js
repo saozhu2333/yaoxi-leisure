@@ -57,15 +57,17 @@ const book = {
 		return result.code
 		},
 		//首页使用的list
-		async homebookgetlist(context,val) {
-			
-			let result = await getsearchBook(val)
-			if (result.data) {
-				// this.addType(result.data, 'book')
-				// this.searchBookList = result.data
-				context.commit("addHomeType",{data:result.data,type:'book',count:result.count})
-			}
-			return result.code
+		homebookgetlist(context,val) {
+			return new Promise((resolve,reject)=>{
+				getsearchBook(val).then(res=>{
+					if (res.data) {
+						context.commit("addHomeType",{data:res.data,type:'book',count:res.count})
+					}
+					resolve(res)
+				}).catch(err=>{
+					reject(err)
+				})
+			})
 		},
 		async getsearchBookContentfun(context,val) {
 			let result = await getsearchBookContent(val)

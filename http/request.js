@@ -1,4 +1,4 @@
-let baseUrl = 'https://api.pingcc.cn'; // 后端的主机名 + 端口号
+let baseUrl = 'http://api.pingcc.cn'; // 后端的主机名 + 端口号
 
 if (process.env.NODE_ENV === 'development') {
 	console.log('开发环境');
@@ -39,7 +39,8 @@ const httpTokenRequest = (opts, data) => {
 				'X-Access-Token': token,
 				'X-Requested-With': 'XMLHttpRequest',
 				"Accept": "application/json",
-				"Content-Type": "application/json; charset=UTF-8"
+				"Content-Type": "application/json; charset=UTF-8",
+				"Cache-Control": "no-cache"
 			} : {
 				// 'X-Access-Token': token,
 				'X-Requested-With': 'XMLHttpRequest',

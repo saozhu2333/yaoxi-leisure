@@ -4,12 +4,13 @@
 			<!-- //头部tab -->
 			<u-tabs itemStyle="width:19%;height:80rpx" :scrollable="false" :list="list1" @click="clickTabs"></u-tabs>
 			<view class="" @click="searchfocus">
-				<uni-search-bar placeholder="搜索"  :focus='focus' :readonly="true">
+				<uni-search-bar placeholder="搜索" :focus='focus' :readonly="true">
 				</uni-search-bar>
 			</view>
 			<!-- //上面分类 -->
 			<u-grid :border="false" col="4">
-				<u-grid-item v-for="(baseListItem,baseListIndex) in baseList" :key="baseListIndex" @click="gridClick(baseListItem)">
+				<u-grid-item v-for="(baseListItem,baseListIndex) in baseList" :key="baseListIndex"
+					@click="gridClick(baseListItem)">
 					<u-icon :customStyle="{paddingTop:20+'rpx'}" :name="baseListItem.name" :size="22"></u-icon>
 					<text class="grid-text">{{baseListItem.title}}</text>
 				</u-grid-item>
@@ -59,10 +60,12 @@
 		mapGetters
 	} from 'vuex';
 	import downScroll from "@/components/downScroll/downScroll.vue"
+	// import AsyncTaskController from "@/utils/XHR_ctrl.js"
+	// import {Async_query} from "@/utils/Promise_all.js"
 	export default {
 		data() {
 			return {
-				focus:false,
+				focus: false,
 				list1: [{
 					name: '推荐'
 				}, {
@@ -136,17 +139,33 @@
 				console.log(item);
 			},
 			searchfocus(item) {
-				
+
 				uni.switchTab({
 					url: '/pages/tabbar/tabbar-4/tabbar-4'
 				})
 				// this.focus=false
 			},
 			//下拉刷新执行
-			loadXHRFun(mescroll){
+			loadXHRFun(mescroll) {
+				// let xhrCtrl = new AsyncTaskController(1)
+				// xhrCtrl.addTask(this.bookgetlistvuex(this.booksearchOption))
+				// xhrCtrl.addTask(this.comicgetlistvuex(this.comicsearchOption))
+				// xhrCtrl.addTask(this.videogetlistvuex(this.videosearchOption))
+				// xhrCtrl.addTask(...[this.bookgetlistvuex(this.booksearchOption), this.comicgetlistvuex(this.comicsearchOption), this.videogetlistvuex(this.videosearchOption)])
+				// [this.bookgetlistvuex(this.booksearchOption), this.comicgetlistvuex(this.comicsearchOption), this.videogetlistvuex(this.videosearchOption)].forEach(res=>{
+				// 	console.log(res);
+				// 	xhrCtrl.addTask(res)
+				// })
 				let that = this
+				// let a = Async_query(1,3,[this.bookgetlistvuex(this.booksearchOption), this.comicgetlistvuex(this.comicsearchOption), this.videogetlistvuex(this.videosearchOption)])
+				// a.data.then(res=>{
+				// 	console.log(res);
+				// })
+				// let a = exphandlePromiseDone([this.bookgetlistvuex(this.booksearchOption), this.comicgetlistvuex(this.comicsearchOption), this.videogetlistvuex(this.videosearchOption)])
+				// console.log(a);
 				Promise.all([this.bookgetlistvuex(this.booksearchOption), this.comicgetlistvuex(this.comicsearchOption), this.videogetlistvuex(this.videosearchOption)
 				]).then(res => {
+					console.log(res);
 					this.$refs['downscroll'].panDuanFun(res,mescroll)
 					// return res
 				}).catch(err=>{
@@ -155,8 +174,10 @@
 				})
 				this.loading = false
 			},
+			
+			
 			//点击grid
-			gridClick(val){
+			gridClick(val) {
 				console.log('功能暂不可用');
 				return
 				// if(val.title=='解析'){

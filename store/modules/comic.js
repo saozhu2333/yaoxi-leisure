@@ -64,14 +64,17 @@ const comic = {
 		},
 		//首页使用的list
 		async homecomicgetlist(context,val) {
-			
-			let result = await getsearchComic(val)
-			if (result.data) {
-				// this.addType(result.data, 'book')
-				// this.searchBookList = result.data
-				context.commit("addHomeType",{data:result.data,type:'comic',count:result.count})
-			}
-		return result.code
+			return new Promise((resolve,reject)=>{
+				getsearchComic(val).then(res=>{
+					if (res.data) {
+						context.commit("addHomeType",{data:res.data,type:'comic',count:res.count})
+					}
+					resolve(res)
+				}).catch(err=>{
+					reject(err)
+				})
+			})
+
 		},
 		async getsearchComicContentfun(context,val) {
 			let result = await getsearchComicContent(val)

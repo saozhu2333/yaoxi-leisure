@@ -49,14 +49,16 @@ const video = {
 		},
 		//首页使用的list
 		async homevideogetlist(context,val) {
-			
-			let result = await getsearchVideo(val)
-			if (result.data) {
-				// this.addType(result.data, 'book')
-				// this.searchBookList = result.data
-				context.commit("addHomeType",{data:result.data,type:'video',count:result.count})
-			}
-			return result.code
+			return new Promise((resolve,reject)=>{
+				getsearchVideo(val).then(res=>{
+					if (res.data) {
+						context.commit("addHomeType",{data:res.data,type:'video',count:res.count})
+					}
+					resolve(res)
+				}).catch(err=>{
+					reject(err)
+				})
+			})
 		},
 	},
 	getters: {

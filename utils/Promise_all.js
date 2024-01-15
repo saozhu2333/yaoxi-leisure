@@ -1,23 +1,25 @@
-export const Async_query = (limit,maxRetry,items) => {
+export const Async_query = async (limit,maxRetry,items,that) => {
 	// 存放结果数组，是个异步数组
 	const resultList = [];
 	// 拿到当前需要并发的数组，使用 set 控制
 	const poolList = new Set();
-
+	let index = 0
 	try {
 		// 循环所有需要请求的数组
 		for (const i of items) {
 			let retryCount = 0;
-
-			const fn = async function itemQueryGo(item) {
-				// 此处的 item 就是每个请求
-				return await item;
-			};
+			index++
+			// const fn =  function itemQueryGo(item) {
+			// 	// 此处的 item 就是每个请求
+			// 	console.log(item,'item');
+			// 	return item;
+			// };
 
 			const sendRequest = async () => {
 				// 每一个请求，发送请求
-				const resultItem = fn(i);
+				const resultItem = i;
 
+				console.log(resultItem,'resultItem');
 				// 向结果数组添加
 				resultList.push(resultItem);
 
@@ -32,35 +34,32 @@ export const Async_query = (limit,maxRetry,items) => {
 				try {
 					// 如果当前的并发数大于要控制的并发数那么直接调用一个拿到结果
 					if (poolList.size >= limit) {
-						 Promise.race(poolList).then(res=>{
-							if(res.code==2){
-								throw new Error
-							}
-						});
-						
-						// await Promise.race(poolList);
+						 Promise.race(poolList)
 					}
-					// console.log(resultItem);
+					console.log(resultItem);
 					return await resultItem;
 				} catch (error) {
 					// 如果请求失败，重试
 					retryCount++;
 					if (retryCount <= maxRetry) {
-						console.log(`失败重试中: ${retryCount}`);
-						return await sendRequest();
+						
+							console.log(`失败重试中: ${retryCount}`);
+							return await sendRequest();
+					
 					} else {
-						console.error(`上传文件失败.${error}`);
-						throw new Error(`上传文件失败.`);
+						throw new Error(`请求失败.`);
 					}
 				}
 			};
-
-			 sendRequest();
+			setTimeout(async ()=>{
+				await sendRequest();
+			},index*500)
+			
 		}
-
+		console.log(resultList);
 		return {
 			success: true,
-			data:  Promise.all(resultList)
+			data:  await Promise.all(resultList)
 		};
 	} catch (error) {
 		return {

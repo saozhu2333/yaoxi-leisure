@@ -58,16 +58,19 @@ const book = {
 		},
 		//首页使用的list
 		homebookgetlist(context,val) {
-			return new Promise((resolve,reject)=>{
-				getsearchBook(val).then(res=>{
-					if (res.data) {
-						context.commit("addHomeType",{data:res.data,type:'book',count:res.count})
-					}
-					resolve(res)
-				}).catch(err=>{
-					reject(err)
+				return new Promise((resolve,reject)=>{
+					getsearchBook(val).then(res=>{
+						if (res.data) {
+							context.commit("addHomeType",{data:res.data,type:'book',count:res.count})
+						}
+						if(res.code){
+							reject(res.msg)
+						}
+						resolve(res)
+					}).catch(err=>{
+						reject(err)
+					})
 				})
-			})
 		},
 		async getsearchBookContentfun(context,val) {
 			let result = await getsearchBookContent(val)

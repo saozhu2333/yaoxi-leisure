@@ -61,7 +61,7 @@
 	} from 'vuex';
 	import downScroll from "@/components/downScroll/downScroll.vue"
 	// import AsyncTaskController from "@/utils/XHR_ctrl.js"
-	// import {Async_query} from "@/utils/Promise_all.js"
+	import {Async_query} from "@/utils/Promise_all.js"
 	export default {
 		data() {
 			return {
@@ -156,22 +156,27 @@
 				// 	console.log(res);
 				// 	xhrCtrl.addTask(res)
 				// })
+				
 				let that = this
-				// let a = Async_query(1,3,[this.bookgetlistvuex(this.booksearchOption), this.comicgetlistvuex(this.comicsearchOption), this.videogetlistvuex(this.videosearchOption)])
-				// a.data.then(res=>{
+				let a = Async_query(1,3,[ that.bookgetlistvuex(that.booksearchOption), that.comicgetlistvuex(that.comicsearchOption), that.videogetlistvuex(that.videosearchOption)],this)
+				a.then(res=>{
+					console.log(res);
+				})
+				// [this.bookgetlistvuex(this.booksearchOption), this.comicgetlistvuex(this.comicsearchOption), this.videogetlistvuex(this.videosearchOption)].forEach(res=>{
 				// 	console.log(res);
 				// })
+				
 				// let a = exphandlePromiseDone([this.bookgetlistvuex(this.booksearchOption), this.comicgetlistvuex(this.comicsearchOption), this.videogetlistvuex(this.videosearchOption)])
 				// console.log(a);
-				Promise.all([this.bookgetlistvuex(this.booksearchOption), this.comicgetlistvuex(this.comicsearchOption), this.videogetlistvuex(this.videosearchOption)
-				]).then(res => {
-					console.log(res);
-					this.$refs['downscroll'].panDuanFun(res,mescroll)
-					// return res
-				}).catch(err=>{
-					this.$refs['downscroll'].panDuanFun(err,mescroll)
-					// return err
-				})
+				// Promise.all([this.bookgetlistvuex(this.booksearchOption), this.comicgetlistvuex(this.comicsearchOption), this.videogetlistvuex(this.videosearchOption)
+				// ]).then(res => {
+				// 	console.log(res);
+				// 	this.$refs['downscroll'].panDuanFun(res,mescroll)
+				// 	// return res
+				// }).catch(err=>{
+				// 	this.$refs['downscroll'].panDuanFun(err,mescroll)
+				// 	// return err
+				// })
 				this.loading = false
 			},
 			
